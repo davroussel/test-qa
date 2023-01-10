@@ -1,0 +1,385 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "description": "An API for keeping track of your contacts and the companies they work for. \n\nDon't forget to take it for a spin by clicking on the **Try in Client** button next to each operation! All read operations are public and don't require authentication.\n\n<div>\n<img src='https://thecontactsapi.apispark.net/v1/img/cropped-contact-img.png' width='90%'>\n<div>\n\n<!-- ![](https://thecontactsapi.apispark.net/v1/img/cropped-contact-img.png) -->\n\n",
+        "id": "bce36554-8083-4e8a-9eec-dba2e6827912",
+        "name": "Contacts API"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Service",
+            "id": "4a8597b4-06ae-42a7-ae7d-2a9d61b9997b",
+            "name": "Companies"
+          }
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "ee3da210-499e-4167-b2d8-64674636da2e",
+            "name": "Contacts"
+          }
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "04b023e0-5b71-42ef-a77d-2a20130140dd",
+            "name": "General"
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "",
+              "name": "POST"
+            },
+            "body": {
+              "bodyType": "Text",
+              "textBody": "{\n  \"id\": \"0e8dd830-ad98-11e6-bf2e-47644ada7c0f\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"birthday\": 152755200000,\n  \"active\": true,\n  \"rank\": 1,\n  \"company\": \"0e8cedd0-ad98-11e6-bf2e-47644ada7c0f\"\n}"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/contacts/"
+            },
+            "description": "Adds a Contact",
+            "id": "c6acde3a-0387-4b5d-93f0-f2b6278c3786",
+            "name": "Create a Contact",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "",
+              "name": "POST"
+            },
+            "body": {
+              "bodyType": "Text",
+              "textBody": "{\n  \"id\": \"0e8cedd0-ad98-11e6-bf2e-47644ada7c0f\",\n  \"name\": \"George Street Brewery\",\n  \"address\":{\n    \"street\": \"2 place de la Defense\",\n    \"zipcode\": \"92053\",\n    \"city\": \"Paris\"\n  },\n  \"tags\":[\n    \"brewery\",\n    \"beer\",\n    \"ale\"\n  ]\n}"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/companies/"
+            },
+            "description": "Adds a Company",
+            "id": "5bccf07c-9b75-4078-9b24-bf51ed8c7ef8",
+            "name": "Create a new Company",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "",
+              "name": "DELETE"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/companies/{companyid}"
+            },
+            "description": "Deletes a Company",
+            "id": "052eb028-a47b-49b2-b87b-4b9fb73ae416",
+            "name": "Delete a Company",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "",
+              "name": "DELETE"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/contacts/{contactid}"
+            },
+            "description": "Deletes a Contact",
+            "id": "5fc2f305-d863-4bf9-a438-cde025b96707",
+            "name": "Delete a Contact",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "",
+              "name": "GET"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/contacts/"
+            },
+            "description": "Loads a list of Contact",
+            "id": "e8e146ce-b23a-41b9-83ef-972554196618",
+            "name": "Get the list of Contacts",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "",
+              "name": "GET"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/companies/{companyid}"
+            },
+            "description": "Loads a Company",
+            "id": "f28ff20c-26ea-434e-855d-cd8b5b1362f2",
+            "name": "Load an individual Company",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "",
+              "name": "GET"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/contacts/{contactid}"
+            },
+            "description": "Loads a Contact",
+            "id": "34eb50fb-cf67-4e64-bdc9-d6a061c94199",
+            "name": "Load an individual Contact",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "",
+              "name": "GET"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/companies/"
+            },
+            "description": "Loads a list of Company",
+            "id": "c8205415-a4a8-408d-871f-6be5d1f48c1c",
+            "name": "Load the list of Companies",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "",
+              "name": "PUT"
+            },
+            "body": {
+              "bodyType": "Text",
+              "textBody": "{\n  \"id\": \"0e8cedd0-ad98-11e6-bf2e-47644ada7c0f\",\n  \"name\": \"George Street Brewery\",\n  \"address\":{\n    \"street\": \"2 place de la Defense\",\n    \"zipcode\": \"92053\",\n    \"city\": \"Paris\"\n  },\n  \"tags\":[\n    \"brewery\",\n    \"beer\",\n    \"ale\"\n  ]\n}"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/companies/{companyid}"
+            },
+            "description": "Stores a Company",
+            "id": "847d9605-823a-4066-a53d-fc447224d120",
+            "name": "Update a Company",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "",
+              "name": "PUT"
+            },
+            "body": {
+              "bodyType": "Text",
+              "textBody": "{\n  \"id\": \"0e8dd830-ad98-11e6-bf2e-47644ada7c0f\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"birthday\": 152755200000,\n  \"active\": true,\n  \"rank\": 1,\n  \"company\": \"0e8cedd0-ad98-11e6-bf2e-47644ada7c0f\"\n}"
+            },
+            "uri": {
+              "scheme": {
+                "secure": true,
+                "name": "https",
+                "version": "V11"
+              },
+              "host": "example.com",
+              "path": "/contacts/{contactid}"
+            },
+            "description": "Stores a Contact",
+            "id": "0f623e65-021c-4c8d-96b0-f226fd3531b6",
+            "name": "Update a Contact",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "id": "5ed67ddb-018a-454d-b68c-5ddb110b9a99",
+      "name": "truc",
+      "variables": {
+        "95eef9e9-dc7d-4f46-930d-66452d8c4c95": {
+          "name": "pouetpouet",
+          "value": "truc",
+          "enabled": true,
+          "createdAt": "2022-11-17T16:11:40.815Z",
+          "private": false
+        }
+      }
+    }
+  ]
+}
