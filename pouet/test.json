@@ -1,0 +1,121 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "7d35405c-e9c3-4962-8cc9-0ce407c584f0",
+        "name": "test"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Scenario",
+            "description": "",
+            "id": "3db61729-f18b-480a-acb2-326c36344719",
+            "name": "Scenario 1"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "secure": true,
+                    "name": "https",
+                    "version": "V11"
+                  },
+                  "host": "pouet.com",
+                  "path": ""
+                },
+                "id": "a43dc497-ecbb-4747-850c-3aba26de2e96",
+                "name": "Request 1",
+                "headers": []
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Scenario",
+            "id": "5c23ea60-3057-42b3-a100-23ed6fd3d89e",
+            "name": "Scenario 2"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "secure": true,
+                    "name": "https",
+                    "version": "V11"
+                  },
+                  "host": "materiel.net",
+                  "path": ""
+                },
+                "id": "71b86b02-4e02-4465-b5ac-0ba02a78004d",
+                "name": "Request 1",
+                "headers": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "id": "79b5b327-34f1-4f6f-b558-ebc8b9473867",
+      "name": "test",
+      "variables": {
+        "f57ae0a6-af05-4b5c-80e9-de2bb9337575": {
+          "name": "blabla",
+          "value": "blabla",
+          "enabled": true,
+          "createdAt": "2025-08-14T07:38:17.533Z",
+          "private": false
+        },
+        "1d636688-ea4b-48d4-bf6f-952fe51bb4ec": {
+          "name": "pouet",
+          "value": null,
+          "enabled": true,
+          "createdAt": "2025-08-14T07:38:33.433Z",
+          "private": true
+        }
+      }
+    }
+  ]
+}
