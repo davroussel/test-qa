@@ -1,0 +1,290 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Joke API",
+    "description" : "API for accessing and managing jokes",
+    "version" : "1.0.0"
+  },
+  "paths" : {
+    "/jokes" : {
+      "get" : {
+        "summary" : "List jokes",
+        "description" : "Retrieves a list of jokes.",
+        "parameters" : [ {
+          "name" : "per_page",
+          "in" : "query",
+          "description" : "Number of items to return per page",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Number of items to return per page"
+          }
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number for pagination",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Page number for pagination"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "headers" : {
+              "X-Pagination-Previous" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "X-Pagination-Next" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "X-Pagination-Last" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "400" : {
+            "$ref" : "#/components/responses/BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/Forbidden"
+          },
+          "500" : {
+            "$ref" : "#/components/responses/InternalServerError"
+          },
+          "429" : {
+            "$ref" : "#/components/responses/TooManyRequests"
+          }
+        }
+      },
+      "post" : {
+        "summary" : "Create a new joke",
+        "description" : "Creates a new joke.",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Successful response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "400" : {
+            "$ref" : "#/components/responses/BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/Forbidden"
+          },
+          "500" : {
+            "$ref" : "#/components/responses/InternalServerError"
+          },
+          "429" : {
+            "$ref" : "#/components/responses/TooManyRequests"
+          }
+        }
+      }
+    },
+    "/jokes/{id}" : {
+      "get" : {
+        "summary" : "Get a joke",
+        "description" : "Retrieves a specific joke by ID.",
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "400" : {
+            "$ref" : "#/components/responses/BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/Forbidden"
+          },
+          "404" : {
+            "$ref" : "#/components/responses/NotFound"
+          },
+          "500" : {
+            "$ref" : "#/components/responses/InternalServerError"
+          },
+          "429" : {
+            "$ref" : "#/components/responses/TooManyRequests"
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Update a joke",
+        "description" : "Updates a specific joke by ID.",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "204" : {
+            "description" : "Successful response"
+          },
+          "400" : {
+            "$ref" : "#/components/responses/BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/Forbidden"
+          },
+          "404" : {
+            "$ref" : "#/components/responses/NotFound"
+          },
+          "500" : {
+            "$ref" : "#/components/responses/InternalServerError"
+          },
+          "429" : {
+            "$ref" : "#/components/responses/TooManyRequests"
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Delete a joke",
+        "description" : "Deletes a specific joke by ID.",
+        "responses" : {
+          "204" : {
+            "description" : "Successful response"
+          },
+          "400" : {
+            "$ref" : "#/components/responses/BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/Forbidden"
+          },
+          "404" : {
+            "$ref" : "#/components/responses/NotFound"
+          },
+          "500" : {
+            "$ref" : "#/components/responses/InternalServerError"
+          },
+          "429" : {
+            "$ref" : "#/components/responses/TooManyRequests"
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      } ]
+    }
+  },
+  "components" : {
+    "responses" : {
+      "BadRequest" : {
+        "description" : "Bad request",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "Unauthorized" : {
+        "description" : "Unauthorized",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "Forbidden" : {
+        "description" : "Forbidden",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "NotFound" : {
+        "description" : "Not found",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "InternalServerError" : {
+        "description" : "Internal server error",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "TooManyRequests" : {
+        "description" : "Too many requests",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}
